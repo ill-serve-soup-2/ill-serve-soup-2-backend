@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
 			.unique()
 			.notNullable();
 
-		tbl.integer("quantity");
+		tbl.integer("quantity").defaultTo(0);
 
 		tbl.string("units", 128);
 	});

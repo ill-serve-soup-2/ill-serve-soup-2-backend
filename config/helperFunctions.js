@@ -48,7 +48,11 @@ const helperFunctions = {
 				next();
 			});
 		} else {
+			console.error(
+				"401 - Not Authorized - Perhaps you forgot to include the token on the Authorization header? Just a guess..."
+			);
 			return res.status(401).json({
+				message: "401 - Not Authorized",
 				error:
 					"No token provided, must be set on the Authorization Header",
 			});

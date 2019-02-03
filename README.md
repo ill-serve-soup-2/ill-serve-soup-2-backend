@@ -1,4 +1,4 @@
-# JOSH >>> UPDATE THIS TO INCLUDE REGISTER AND LOGIN. MAKE SURE TO HASH PWs AND GENERATE TOKENS
+# >>> UPDATE THIS TO INCLUDE REGISTER AND LOGIN. MAKE SURE TO HASH PWs AND GENERATE TOKENS
 
 ### I am working on creating a registration/login system that will only allow users with certain roles to make changes to the database. Should have that going by Sunday night, as long as I don't hit any problems.
 
@@ -97,7 +97,7 @@ Returns a JSON object with the entire users list
 
 #### POST
 
-The request body must include a unique name, and can optionally include quantity and units.
+The request body must include a unique username and a password. It can optionally include a name, role, email, and phone number.
 
 ---
 
@@ -125,7 +125,7 @@ Returns a JSON object with the entire users list
 
 #### POST
 
-The request body must include a unique name, and can optionally include quantity and units.
+The request body must include a unique name, and can optionally include a streetAddress, a city, state, zipCode, email, and phone.
 
 ---
 

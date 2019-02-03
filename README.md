@@ -1,4 +1,6 @@
-# UPDATE THIS TO INCLUDE REGISTER AND LOGIN. MAKE SURE TO HASH PWs AND GENERATE TOKENS
+# JOSH >>> UPDATE THIS TO INCLUDE REGISTER AND LOGIN. MAKE SURE TO HASH PWs AND GENERATE TOKENS
+
+### I am working on creating a registration/login system that will only allow users with certain roles to make changes to the database. Should have that going by Sunday night, as long as I don't hit any problems.
 
 # I'll Serve Soup 2
 
@@ -16,7 +18,7 @@ Run _npm run server_ OR _yarn server_ to start. By default the server runs on po
 
 Column names are _emphasized_
 
-#### Inventory
+### Inventory
 
 Used for managing total inventory and individual items. Able to Add items, remove items, update items AND get a list of the total inventory
 

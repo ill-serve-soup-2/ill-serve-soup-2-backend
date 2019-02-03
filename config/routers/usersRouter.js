@@ -9,19 +9,21 @@ const helperFunctions = require("../helperFunctions.js");
 const generateToken = helperFunctions.generateToken;
 const authenticate = helperFunctions.authenticate;
 
-router.route("/").get((req, res) => {
-	console.log("usersRouter");
-	db("users")
-		.then(users => {
-			res.status(201).json(users);
-		})
-		.catch(err =>
-			res.status(500).json({
-				error: "There has been a server error on the GET route",
-				err,
+router
+	.use(authenticate)
+	.route("/")
+	.get((req, res) => {
+		db("users")
+			.then(users => {
+				res.status(201).json(users);
 			})
-		);
-});
+			.catch(err =>
+				res.status(500).json({
+					error: "There has been a server error on the GET route",
+					err,
+				})
+			);
+	});
 
 router.route("/register").post((req, res) => {
 	const userInfo = req.body;
@@ -54,7 +56,6 @@ router.route("/login").post((req, res) => {
 		.where({ username: userInfo.username })
 		.first()
 		.then(user => {
-			console.log(user);
 			if (user && bcrypt.compareSync(userInfo.password, user.password)) {
 				const token = generateToken(user);
 				res.status(200).json({
@@ -76,6 +77,7 @@ router.route("/login").post((req, res) => {
 });
 
 router
+	.use(authenticate)
 	.route("/:id")
 	.get((req, res) => {
 		db("users")

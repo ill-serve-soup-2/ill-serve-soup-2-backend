@@ -15,10 +15,10 @@ module.exports = {
 	staging: {
 		client: "postgresql",
 		connection: {
-			database: "my_db",
+			database: "db",
 			user: "username",
 			password: "password",
-		},
+		}, useNullAsDefault: true,
 		pool: {
 			min: 2,
 			max: 10,
@@ -31,9 +31,9 @@ module.exports = {
 	production: {
 		client: "postgresql",
 		connection: 
-		{database: "my_db",
+		{database: "db",
 		user: "username",
-		password: "password", },
+		password: "password", }, useNullAsDefault: true,
 
 		pool: {
 			min: 2,

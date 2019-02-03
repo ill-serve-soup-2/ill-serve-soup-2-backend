@@ -8,15 +8,15 @@ First, install all dependencies using yarn or npm before moving on.
 
 Run _npm run server_ OR _yarn server_ to start. By default the server runs on port 5000. Once I deploy it, I will change this, of course.
 
-Database Tables
-[Inventory](#Inventory)|
-[Users](#Users)|
-[Locations](#Locations)|
+**Database Tables**
+[Inventory](#Inventory) |
+[Users](#Users) |
+[Locations](#Locations) |
 
-Endpoints
-[Inventory GET](#/inventory)|
-[Users GET](#/users)|
-[Locations GET](#/locations)|
+**Endpoints**
+[Inventory GET](#/inventory) |
+[Users GET](#/users) |
+[Locations GET](#/locations) |
 
 ---
 

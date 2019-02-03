@@ -1,7 +1,3 @@
-# >>> UPDATE THIS TO INCLUDE REGISTER AND LOGIN. MAKE SURE TO HASH PWs AND GENERATE TOKENS
-
-### I am working on creating a registration/login system that will only allow users with certain roles to make changes to the database. Should have that going by Sunday night, as long as I don't hit any problems.
-
 # I'll Serve Soup 2
 
 ## Server and Database
@@ -11,6 +7,16 @@
 First, install all dependencies using yarn or npm before moving on.
 
 Run _npm run server_ OR _yarn server_ to start. By default the server runs on port 5000. Once I deploy it, I will change this, of course.
+
+Database Tables
+[Inventory](#Inventory)
+[Users](#Users)
+[Locations](#Locations)
+
+Endpoints
+[Inventory GET](#/inventory)
+[Users GET](#/users)
+[Locations GET](#/locations)
 
 ---
 
@@ -93,11 +99,27 @@ Permanently removes the item from the inventory. A confirmation dialog may be a 
 
 #### GET
 
-Returns a JSON object with the entire users list
+Returns a JSON object with the entire users list. User must be logged in to access this.
+
+REACT DEV >> _You need to have a way to retrieve the token that is generated._
+
+---
+
+## /users/register
 
 #### POST
 
 The request body must include a unique username and a password. It can optionally include a name, role, email, and phone number.
+
+---
+
+## /users/login
+
+#### POST
+
+The request body must include a unique username and a password matching what is on the database.
+
+REACT DEV >> _You need to have a way to store the token that is generated. LocalStorage(setItem) is a simple way_
 
 ---
 

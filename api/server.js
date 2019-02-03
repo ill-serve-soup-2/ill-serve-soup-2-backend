@@ -1,23 +1,23 @@
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
-const morgan = require("morgan");
 
-const routes = require("../config/routes.js");
+const inventoryRouter = require("../config/routers/inventoryRouter.js");
+const usersRouter = require("../config/routers/usersRouter.js");
+const locationsRouter = require("../config/routers/locationsRouter.js");
 
 const server = express();
 
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
-server.use(morgan);
-
-routes(server);
 
 server.get("/", (req, res) => {
 	res.status(200).send("Server alive");
 });
 
-module.exports = {
-	server,
-};
+server.use("/inventory", inventoryRouter);
+server.use("/users", usersRouter);
+server.use("/locations", locationsRouter);
+
+module.exports = server;

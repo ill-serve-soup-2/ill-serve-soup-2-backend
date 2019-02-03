@@ -14,9 +14,9 @@ Run _npm run server_ OR _yarn server_ to start. By default the server runs on po
 [Locations](#Locations) |
 
 **Endpoints**
-[Inventory GET](#/inventory) |
-[Users GET](#/users) |
-[Locations GET](#/locations) |
+[Inventory GET](#inventory-1) |
+[Users GET](#users-1) |
+[Locations GET](#locations-1) |
 
 ---
 

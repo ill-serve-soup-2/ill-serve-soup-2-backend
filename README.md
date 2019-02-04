@@ -26,10 +26,7 @@ NOTE: Do not include the id number in any PUT or POST requests. The system autog
 
 NOTE #2: You must put quotation marks around the key names in your objects, otherwise you will receive an error.
 
-```
-{ "username" : "abc123" }, not { username : "abc123" }
-
-```
+`{ "username" : "abc123" }`, not `{ username : "abc123" }`
 
 ---
 

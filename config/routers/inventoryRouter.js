@@ -14,7 +14,7 @@ router
 		console.log("inventoryRouter");
 		db("inventory")
 			.then(inventory => {
-				res.status(201).json(inventory);
+				res.status(200).json(inventory);
 			})
 			.catch(err =>
 				res.status(500).json({
@@ -43,7 +43,9 @@ router
 					})
 				);
 		} else {
-			res.status(400).json({ error: "You must include a name" });
+			res.status(400).json({
+				error: "You must include a name, at minimum",
+			});
 		}
 	});
 
@@ -54,7 +56,7 @@ router
 		db("inventory")
 			.where({ id: req.params.id })
 			.then(item => {
-				res.status(201).json(item);
+				res.status(200).json(item);
 			})
 			.catch(err =>
 				res.status(500).json({
@@ -91,7 +93,7 @@ router
 			.del()
 			.then(count => {
 				if (count > 0) {
-					res.status(201).json({
+					res.status(200).json({
 						message: `${count} record has been deleted.`,
 					});
 				} else {

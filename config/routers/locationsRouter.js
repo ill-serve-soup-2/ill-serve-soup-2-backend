@@ -13,7 +13,7 @@ router
 		console.log("locationsRouter");
 		db("locations")
 			.then(locations => {
-				res.status(201).json(locations);
+				res.status(200).json(locations);
 			})
 			.catch(err =>
 				res.status(500).json({
@@ -26,8 +26,13 @@ router
 		if (req.body.name) {
 			db("locations")
 				.insert(req.body)
-				.then(locations => {
-					res.status(201).json(locations);
+				.then(ids => {
+					res.status(201).json({
+						message: `${
+							req.body.name
+						} has been added to the locations directory`,
+						itemId: ids,
+					});
 				})
 				.catch(err =>
 					res.status(500).json({
@@ -49,7 +54,7 @@ router
 			.where({ id: req.params.id })
 			.first()
 			.then(item => {
-				res.status(201).json(item);
+				res.status(200).json(item);
 			})
 			.catch(err =>
 				res.status(500).json({
@@ -59,14 +64,13 @@ router
 			);
 	})
 	.put((req, res) => {
-		// if (req.body) {
 		db("locations")
 			.where({ id: req.params.id })
 			.update(req.body)
 			.then(count => {
 				if (count > 0) {
 					res.status(201).json({
-						message: `${count} record has been updated.`,
+						message: `Updated ${count} record(s)`,
 					});
 				} else {
 					res.status(404).json({
@@ -76,15 +80,11 @@ router
 			})
 			.catch(err =>
 				res.status(500).json({
-					error: "There has been a server error on the PUT route",
+					error:
+						"There has been a server error on the locations PUT route",
 					err,
 				})
 			);
-		// } else {
-		// 	res.status(400).json({
-		// 		error: "You must include information to update",
-		// 	});
-		// }
 	})
 	.delete((req, res) => {
 		db("locations")
@@ -92,8 +92,8 @@ router
 			.del()
 			.then(count => {
 				if (count > 0) {
-					res.status(201).json({
-						message: `${count} record has been deleted.`,
+					res.status(200).json({
+						message: `Deleted ${count} record(s)`,
 					});
 				} else {
 					res.status(404).json({
@@ -103,7 +103,8 @@ router
 			})
 			.catch(err =>
 				res.status(500).json({
-					error: "There has been a server error on the DELETE route",
+					error:
+						"There has been a server error on the locations DELETE route",
 					err,
 				})
 			);

@@ -7,7 +7,7 @@ const helperFunctions = {
 	register: (req, res) => {
 		const userInfo = req.body;
 
-		userInfo.password = bcrypt.hashSync(userInfo.password, 12); //set higher for production
+		userInfo.password = bcrypt.hashSync(userInfo.password, 14);
 
 		db("users")
 			.insert(userInfo)
@@ -17,8 +17,7 @@ const helperFunctions = {
 			.catch(err =>
 				res.status(500).json({
 					err,
-					message:
-						"There has been an error on the Register POST endpoint",
+					message: "There has been an error on the Register function",
 				})
 			);
 	},
@@ -54,7 +53,7 @@ const helperFunctions = {
 			return res.status(401).json({
 				message: "401 - Not Authorized",
 				error:
-					"No token provided, must be set on the Authorization Header",
+					"401 - Not Authorized - Perhaps you forgot to include the token on the Authorization header? Just a guess...",
 			});
 		}
 	},

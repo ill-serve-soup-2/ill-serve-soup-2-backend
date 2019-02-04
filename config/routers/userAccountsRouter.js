@@ -2,18 +2,15 @@ const express = require("express");
 const knex = require("knex");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-// const jwt = require("jsonwebtoken");
 const knexConfig = require("../../knexfile.js");
 const db = knex(knexConfig.development);
 const helperFunctions = require("../helperFunctions.js");
 const generateToken = helperFunctions.generateToken;
-const authenticate = helperFunctions.authenticate;
 
 router.route("/register").post((req, res) => {
 	const userInfo = req.body;
 
-	userInfo.password = bcrypt.hashSync(userInfo.password, 12); //set higher for production
-	console.log(userInfo);
+	userInfo.password = bcrypt.hashSync(userInfo.password, 14);
 	if (userInfo.id) {
 		res.status(400).json({
 			error:

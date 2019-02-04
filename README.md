@@ -24,7 +24,12 @@ By default the server runs on port 5000 if it is not found at https://ill-serve-
 
 NOTE: Do not include the id number in any PUT or POST requests. The system autogenerates it.
 
-NOTE #2: You must put quotation marks around the key names in your objects, otherwise you will receive an error. { "username" : "abc123" }, not { username : "abc123" }
+NOTE #2: You must put quotation marks around the key names in your objects, otherwise you will receive an error.
+
+```
+{ "username" : "abc123" }, not { username : "abc123" }
+
+```
 
 ---
 
@@ -116,9 +121,11 @@ _example:_
 
 Returns a JSON object with the entire inventory. User must be logged in to access.
 
+Success: Returns a status of 200 and a JSON object with the inventory
+
 #### POST
 
-The request body must include a unique name, and can optionally include quantity and units. User must be logged in to access. Returns a success message and the id number of the new item.
+The request body must include a unique name, and can optionally include quantity and units. User must be logged in to access.
 
 ```javascript
 {
@@ -128,6 +135,8 @@ The request body must include a unique name, and can optionally include quantity
 },
 ```
 
+Success: Returns a status of 201 and a JSON object with a success message and the id number of the new item.
+
 ---
 
 ### /api/inventory/_{id}_
@@ -136,13 +145,19 @@ The request body must include a unique name, and can optionally include quantity
 
 Returns a JSON object with the corresponding item. User must be logged in to access.
 
+Success: Returns a status of 200 and a JSON object containing the item.
+
 #### PUT
 
 The request body must include information to be updated. User must be logged in to access.
 
+Success: Returns a status of 201 and a JSON object with a success message and the count of updated items.
+
 #### DELETE
 
 Permanently removes the item from the inventory. A confirmation dialog may be a good idea here. User must be logged in to access.
+
+Success: Returns a status of 200 and a JSON object with a success message with the count of deleted items.
 
 ---
 
@@ -155,6 +170,8 @@ Permanently removes the item from the inventory. A confirmation dialog may be a 
 Returns a JSON object with the entire users list. User must be logged in to access this.
 
 REACT DEV >> _You need to have a way to retrieve the token that is generated._
+
+Success: Returns a status of 200 and a JSON object containing all of the users.
 
 ---
 
@@ -175,13 +192,19 @@ Returns a JSON object with the corresponding user. User must be logged in to acc
 }
 ```
 
+Success: Returns a status of 200 and a JSON object containing the requested user.
+
 #### PUT
 
 The request body must include information to be updated. User must be logged in to access.
 
+Success: Returns a status of 201 and a JSON object with a success message with the count of updated items.
+
 #### DELETE
 
 Permanently removes the corresponding user from the database. A confirmation dialog may be a good idea here. User must be logged in to access.
+
+Success: Returns a status of 200 and a JSON object with a success message with the count of deleted items.
 
 ---
 
@@ -204,13 +227,15 @@ The request body must include a unique username and a password. It can optionall
 }
 ```
 
+Success: Returns a status of 201 and a JSON object with a success message and the id number of the new user.
+
 ---
 
 ### /api/useraccounts/login
 
 #### POST
 
-The request body must include a unique username and a password matching what is on the database.
+The request body must include a unique username and a password matching what is on the database. Returns a success message and a token which is required to pass to be able access restricted routes.
 
 ```javascript
 {
@@ -221,6 +246,8 @@ The request body must include a unique username and a password matching what is 
 
 REACT DEV >> _You need to have a way to store the token that is generated. LocalStorage(setItem) is a simple way_
 
+Success: Returns a status of 201 and a JSON object with a success message and the token.
+
 ---
 
 ## Locations
@@ -230,6 +257,8 @@ REACT DEV >> _You need to have a way to store the token that is generated. Local
 #### GET
 
 Returns a JSON object with the entire locations list. User must be logged in to access.
+
+Success: Returns a status of 200 and a JSON object containing all of the locations.
 
 #### POST
 
@@ -246,6 +275,8 @@ The request body must include a unique name, and can optionally include a street
 	phone:  "718-395-9875",
 },
 ```
+
+Success: Returns a status of 201 and a JSON object with a success message and the id number of the new location.
 
 ---
 
@@ -268,13 +299,19 @@ Returns a JSON object with the corresponding location. User must be logged in to
 },
 ```
 
+Success: Returns a status of 200 and a JSON object with the requested location.
+
 #### PUT
 
 The request body must include information to be updated. User must be logged in to access.
 
+Success: Returns a status of 201 and a JSON object with a success with the count of updated records.
+
 #### DELETE
 
 Permanently removes the corresponding location from the database. A confirmation dialog may be a good idea here. User must be logged in to access.
+
+Success: Returns a status of 200 and a JSON object with a success message and the count of the deleted records.
 
 ---
 

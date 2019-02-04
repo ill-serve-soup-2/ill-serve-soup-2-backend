@@ -94,32 +94,33 @@ router
 			);
 	})
 	.put((req, res) => {
-		// if (req.body) {
-		db("users")
-			.where({ id: req.params.id })
-			.update(req.body)
-			.then(count => {
-				if (count > 0) {
-					res.status(201).json({
-						message: `${count} record has been updated.`,
-					});
-				} else {
-					res.status(404).json({
-						error: `The requested ID does not exist`,
-					});
-				}
-			})
-			.catch(err =>
-				res.status(500).json({
-					error: "There has been a server error on the PUT route",
-					err,
+		if (req.body.id) {
+			res.status(400).json({
+				error:
+					"Please do not include the ID number in the update request body. The system auto-generates them",
+			});
+		} else {
+			db("users")
+				.where({ id: req.params.id })
+				.update(req.body)
+				.then(count => {
+					if (count > 0) {
+						res.status(201).json({
+							message: `${count} record has been updated.`,
+						});
+					} else {
+						res.status(404).json({
+							error: `The requested ID does not exist`,
+						});
+					}
 				})
-			);
-		// } else {
-		// 	res.status(400).json({
-		// 		error: "You must include information to update",
-		// 	});
-		// }
+				.catch(err =>
+					res.status(500).json({
+						error: "There has been a server error on the PUT route",
+						err,
+					})
+				);
+		}
 	})
 	.delete((req, res) => {
 		db("users")

@@ -13,24 +13,31 @@ router.route("/register").post((req, res) => {
 	const userInfo = req.body;
 
 	userInfo.password = bcrypt.hashSync(userInfo.password, 12); //set higher for production
-
-	db("users")
-		.insert(userInfo)
-		.then(ids => {
-			res.status(201).json({
-				message: `User ${
-					userInfo.username
-				} has been successfully registered`,
-				userID: ids[0],
-			});
-		})
-		.catch(err =>
-			res.status(500).json({
-				err,
-				message:
-					"There has been an error on the Register POST endpoint",
+	console.log(userInfo);
+	if (userInfo.id) {
+		res.status(400).json({
+			error:
+				"Please do not include the ID number in the registration. The system auto-generates them",
+		});
+	} else {
+		db("users")
+			.insert(userInfo)
+			.then(ids => {
+				res.status(201).json({
+					message: `User ${
+						userInfo.username
+					} has been successfully registered`,
+					userID: ids[0],
+				});
 			})
-		);
+			.catch(err =>
+				res.status(500).json({
+					err,
+					message:
+						"There has been an error on the Register POST endpoint",
+				})
+			);
+	}
 });
 
 router.route("/login").post((req, res) => {

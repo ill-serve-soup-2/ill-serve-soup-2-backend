@@ -22,6 +22,8 @@ By default the server runs on port 5000 if it is not found at https://ill-serve-
 [User Accounts](#user-accounts) |
 [Locations](#locations-1) |
 
+NOTE: Do not include the id number in any PUT or POST requests. The system autogenerates it.
+
 ---
 
 # **Database Schema**
@@ -114,11 +116,10 @@ Returns a JSON object with the entire inventory. User must be logged in to acces
 
 #### POST
 
-The request body must include a unique name, and can optionally include quantity and units. User must be logged in to access.
+The request body must include a unique name, and can optionally include quantity and units. User must be logged in to access. Returns a success message and the id number of the new item.
 
 ```javascript
 {
-	id:  33,
 	name:  "Tuna - Salad Premix", //required
 	quantity:  89,
 	units:  "ounces",
@@ -188,7 +189,7 @@ Permanently removes the corresponding user from the database. A confirmation dia
 
 #### POST
 
-The request body must include a unique username and a password. It can optionally include a name, role, email, and phone number.
+The request body must include a unique username and a password. It can optionally include a name, role, email, and phone number. Returns a success message and the id number of the new user.
 
 ```javascript
 {
@@ -278,7 +279,7 @@ Permanently removes the corresponding location from the database. A confirmation
 ```
                 .-~~~~~~~~~-._       _.-~~~~~~~~~-.
             __.'              ~.   .~              `.__
-          .'//        END          \./      OF       \\`.
+          .'//        END       \./      OF   THE    \\`.
         .'//                     |           README    \\`.
       .'// .-~"""""""~~~~-._     |     _,-~~~~"""""""~-. \\`.
     .'//.-"                 `-.  |  .-'                 "-.\\`.

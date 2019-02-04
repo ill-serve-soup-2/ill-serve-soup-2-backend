@@ -3,6 +3,8 @@ const knex = require("knex");
 const router = express.Router();
 const knexConfig = require("../../knexfile.js");
 const db = knex(knexConfig.development);
+const helperFunctions = require("../helperFunctions.js");
+const authenticate = helperFunctions.authenticate;
 
 router
 	.use(authenticate)

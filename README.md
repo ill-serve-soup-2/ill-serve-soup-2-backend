@@ -2,7 +2,7 @@
 
 ## Server and Database
 
-### To start the server:
+### To start the server if running locally:
 
 First, install all dependencies using yarn or npm before moving on. I recommend npm because yarn couldn't find _bcryptjs_ when I was setting this up.
 
@@ -23,7 +23,8 @@ By default the server runs on port 5000 if it is not found at https://ill-serve-
 [Locations](#locations-1) |
 
 NOTE: Do not include the id number in any PUT or POST requests. The system autogenerates it.
-NOTE #2: You must put quotation marks around the key names in your objects, otherwise you will receive an error.
+
+NOTE #2: You must put quotation marks around the key names in your objects, otherwise you will receive an error. { "username" : "abc123" }, not { username : "abc123" }
 
 ---
 

@@ -23,6 +23,7 @@ By default the server runs on port 5000 if it is not found at https://ill-serve-
 [Locations](#locations-1) |
 
 NOTE: Do not include the id number in any PUT or POST requests. The system autogenerates it.
+NOTE #2: You must put quotation marks around the key names in your objects, otherwise you will receive an error.
 
 ---
 

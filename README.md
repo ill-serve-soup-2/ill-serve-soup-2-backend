@@ -93,9 +93,9 @@ Used to manage list of locations and individual locations
 -   A **_phone_** , max length 128 characters
 
 _example:_
-|id|name|streetAddress|city|state|zipCode|email|phone
-|--|----|-------------|----|-----|-------|-----|-----|
-| 3 | Downtown | 123 Main St | Townville | Oregon | 12345 | soupkitchen@email.com | 123-456-7890 |
+id|name|streetAddress|city|state|zipCode|email|phone
+--|----|-------------|----|-----|-------|-----|-----|
+3 | Downtown | 123 Main St | Townville | Oregon | 12345 | soupkitchen@email.com | 123-456-7890 |
 
 ---
 

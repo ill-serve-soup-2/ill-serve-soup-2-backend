@@ -43,9 +43,10 @@ Used for managing total inventory and individual items. Able to Add items, remov
 -   The **_units_** are also optional. This would be useful for entering units of measure for ingredients. Can be anything and is made to be flexible for a soup kitchen that probably does not track the inventory down to the ounce. (example: "lbs" or "bags" for dry goods, "cans" for canned goods)
 
 _example:_
-|id|name|quantity|units
-|--|----|--------|----|
-| 1 | Chicken Soup | 25 | cans |
+
+| id  | name         | quantity | units |
+| --- | ------------ | -------- | ----- |
+| 1   | Chicken Soup | 25       | cans  |
 
 ---
 
@@ -68,9 +69,10 @@ Used to manage list of users and individual users
 -   A user **_phone_** , max length 128 characters
 
 _example:_
-|id|username|password|name|role|email|phone
-|--|--------|--------|----|----|-----|----|
-| 3 | jsmith99 | _password_ | Joe Smith | volunteer | jsmith99@email.com | 123-456-7890 |
+
+| id  | username | password   | name      | role      | email              | phone        |
+| --- | -------- | ---------- | --------- | --------- | ------------------ | ------------ |
+| 3   | jsmith99 | _password_ | Joe Smith | volunteer | jsmith99@email.com | 123-456-7890 |
 
 ---
 
@@ -93,9 +95,10 @@ Used to manage list of locations and individual locations
 -   A **_phone_** , max length 128 characters
 
 _example:_
-id|name|streetAddress|city|state|zipCode|email|phone
---|----|-------------|----|-----|-------|-----|-----|
-3 | Downtown | 123 Main St | Townville | Oregon | 12345 | soupkitchen@email.com | 123-456-7890 |
+
+| id  | name     | streetAddress | city      | state  | zipCode | email                 | phone        |
+| --- | -------- | ------------- | --------- | ------ | ------- | --------------------- | ------------ |
+| 3   | Downtown | 123 Main St   | Townville | Oregon | 12345   | soupkitchen@email.com | 123-456-7890 |
 
 ---
 

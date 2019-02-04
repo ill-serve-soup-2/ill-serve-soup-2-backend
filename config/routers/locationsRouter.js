@@ -4,43 +4,48 @@ const router = express.Router();
 const knexConfig = require("../../knexfile.js");
 const db = knex(knexConfig.development);
 
-router.route("/").get((req, res) => {
-	console.log("locationsRouter");
-	db("locations")
-		.then(locations => {
-			res.status(201).json(locations);
-		})
-		.catch(err =>
-			res.status(500).json({
-				error: "There has been a server error on the GET route",
-				err,
+router
+	.use(authenticate)
+	.route("/")
+	.get((req, res) => {
+		console.log("locationsRouter");
+		db("locations")
+			.then(locations => {
+				res.status(201).json(locations);
 			})
-		);
-});
-// .post((req, res) => {
-// 	if (req.body.name) {
-// 		db("locations")
-// 			.insert(req.body)
-// 			.then(locations => {
-// 				res.status(201).json(locations);
-// 			})
-// 			.catch(err =>
-// 				res.status(500).json({
-// 					error:
-// 						"There has been a server error on the POST route",
-// 					err,
-// 				})
-// 			);
-// 	} else {
-// 		res.status(400).json({ error: "You must include a name" });
-// 	}
-// });
+			.catch(err =>
+				res.status(500).json({
+					error: "There has been a server error on the GET route",
+					err,
+				})
+			);
+	})
+	.post((req, res) => {
+		if (req.body.name) {
+			db("locations")
+				.insert(req.body)
+				.then(locations => {
+					res.status(201).json(locations);
+				})
+				.catch(err =>
+					res.status(500).json({
+						error:
+							"There has been a server error on the POST route",
+						err,
+					})
+				);
+		} else {
+			res.status(400).json({ error: "You must include a name" });
+		}
+	});
 
 router
+	.use(authenticate)
 	.route("/:id")
 	.get((req, res) => {
 		db("locations")
 			.where({ id: req.params.id })
+			.first()
 			.then(item => {
 				res.status(201).json(item);
 			})

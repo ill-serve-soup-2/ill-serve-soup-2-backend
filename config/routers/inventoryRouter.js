@@ -3,40 +3,52 @@ const knex = require("knex");
 const router = express.Router();
 const knexConfig = require("../../knexfile.js");
 const db = knex(knexConfig.development);
-
-router.route("/").get((req, res) => {
-	console.log("inventoryRouter");
-	db("inventory")
-		.then(inventory => {
-			res.status(201).json(inventory);
-		})
-		.catch(err =>
-			res.status(500).json({
-				error: "There has been a server error on the GET route",
-				err,
-			})
-		);
-});
-// .post((req, res) => {
-// 	if (req.body.name) {
-// 		db("inventory")
-// 			.insert(req.body)
-// 			.then(inventory => {
-// 				res.status(201).json(inventory);
-// 			})
-// 			.catch(err =>
-// 				res.status(500).json({
-// 					error:
-// 						"There has been a server error on the POST route",
-// 					err,
-// 				})
-// 			);
-// 	} else {
-// 		res.status(400).json({ error: "You must include a name" });
-// 	}
-// });
+const helperFunctions = require("../helperFunctions.js");
+const generateToken = helperFunctions.generateToken;
+const authenticate = helperFunctions.authenticate;
 
 router
+	.use(authenticate)
+	.route("/")
+	.get((req, res) => {
+		console.log("inventoryRouter");
+		db("inventory")
+			.then(inventory => {
+				res.status(201).json(inventory);
+			})
+			.catch(err =>
+				res.status(500).json({
+					error: "There has been a server error on the GET route",
+					err,
+				})
+			);
+	})
+	.post((req, res) => {
+		if (req.body.name) {
+			db("inventory")
+				.insert(req.body)
+				.then(ids => {
+					res.status(201).json({
+						message: `${
+							req.body.name
+						} has been added to the inventory`,
+						itemId: ids,
+					});
+				})
+				.catch(err =>
+					res.status(500).json({
+						error:
+							"There has been a server error on the POST route",
+						err,
+					})
+				);
+		} else {
+			res.status(400).json({ error: "You must include a name" });
+		}
+	});
+
+router
+	.use(authenticate)
 	.route("/:id")
 	.get((req, res) => {
 		db("inventory")

@@ -5,6 +5,7 @@ const helmet = require("helmet");
 const inventoryRouter = require("../config/routers/inventoryRouter.js");
 const usersRouter = require("../config/routers/usersRouter.js");
 const locationsRouter = require("../config/routers/locationsRouter.js");
+const userAccountsRouter = require("../config/routers/userAccountsRouter.js");
 
 const server = express();
 
@@ -16,8 +17,9 @@ server.get("/", (req, res) => {
 	res.status(200).send("Server alive");
 });
 
-server.use("/inventory", inventoryRouter);
-server.use("/users", usersRouter);
-server.use("/locations", locationsRouter);
+server.use("/api/inventory", inventoryRouter);
+server.use("/api/users", usersRouter);
+server.use("/api/locations", locationsRouter);
+server.use("/api/useraccounts", userAccountsRouter);
 
 module.exports = server;

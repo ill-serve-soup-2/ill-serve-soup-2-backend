@@ -14,6 +14,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: null,
 					email: null,
 					phone: "718-395-9875",
+					volunteersNeeded: false,
 				},
 				{
 					id: 2,
@@ -24,6 +25,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: null,
 					email: "gdalbey1@psu.edu",
 					phone: "202-857-2031",
+					volunteersNeeded: false,
 				},
 				{
 					id: 3,
@@ -34,6 +36,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: null,
 					email: "dtomlett2@ovh.net",
 					phone: "917-655-8402",
+					volunteersNeeded: false,
 				},
 				{
 					id: 4,
@@ -44,6 +47,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: "52410",
 					email: null,
 					phone: "319-161-3156",
+					volunteersNeeded: false,
 				},
 				{
 					id: 5,
@@ -54,6 +58,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: "88519",
 					email: "iianno4@unblog.fr",
 					phone: "915-588-8129",
+					volunteersNeeded: false,
 				},
 				{
 					id: 6,
@@ -64,6 +69,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: "75074",
 					email: "estockings5@odnoklassniki.ru",
 					phone: "972-650-6963",
+					volunteersNeeded: false,
 				},
 				{
 					id: 7,
@@ -74,6 +80,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: null,
 					email: null,
 					phone: "740-920-1751",
+					volunteersNeeded: false,
 				},
 				{
 					id: 8,
@@ -84,6 +91,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: "80243",
 					email: null,
 					phone: "303-804-6907",
+					volunteersNeeded: false,
 				},
 				{
 					id: 9,
@@ -94,6 +102,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: null,
 					email: "sblackman8@huffingtonpost.com",
 					phone: "210-316-7805",
+					volunteersNeeded: false,
 				},
 				{
 					id: 10,
@@ -104,6 +113,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: "19610",
 					email: "yeisig9@blogspot.com",
 					phone: "484-332-1943",
+					volunteersNeeded: false,
 				},
 				{
 					id: 11,
@@ -114,6 +124,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: "32092",
 					email: null,
 					phone: "904-167-8256",
+					volunteersNeeded: false,
 				},
 				{
 					id: 12,
@@ -124,6 +135,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: "10120",
 					email: null,
 					phone: "212-152-7671",
+					volunteersNeeded: false,
 				},
 				{
 					id: 13,
@@ -134,6 +146,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: null,
 					email: "pmccarrickc@plala.or.jp",
 					phone: "402-815-8934",
+					volunteersNeeded: false,
 				},
 				{
 					id: 14,
@@ -144,6 +157,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: null,
 					email: null,
 					phone: "713-578-7211",
+					volunteersNeeded: true,
 				},
 				{
 					id: 15,
@@ -154,6 +168,7 @@ exports.seed = function(knex, Promise) {
 					zipCode: null,
 					email: "ssimeke@hostgator.com",
 					phone: "775-381-3859",
+					volunteersNeeded: false,
 				},
 			]);
 		});

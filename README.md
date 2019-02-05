@@ -100,11 +100,13 @@ Used to manage list of locations and individual locations
 
 -   A **_phone_** , max length 128 characters
 
+-   **_volunteersNeeded_**, a boolean that defaults to 0 (false).
+
 _example:_
 
-| id  | name     | streetAddress | city      | state  | zipCode | email                 | phone        |
-| --- | -------- | ------------- | --------- | ------ | ------- | --------------------- | ------------ |
-| 3   | Downtown | 123 Main St   | Townville | Oregon | 12345   | soupkitchen@email.com | 123-456-7890 |
+| id  | name     | streetAddress | city      | state  | zipCode | email                 | phone        | volunteersNeeded |
+| --- | -------- | ------------- | --------- | ------ | ------- | --------------------- | ------------ | ---------------- |
+| 3   | Downtown | 123 Main St   | Townville | Oregon | 12345   | soupkitchen@email.com | 123-456-7890 | 0                |
 
 ---
 
@@ -270,6 +272,7 @@ The request body must include a unique name, and can optionally include a street
 	zipCode:  12345,
 	email:  bronxsoupkitchen@email.com,
 	phone:  "718-395-9875",
+	volunteersNeeded: 0,
 },
 ```
 
@@ -293,6 +296,7 @@ Returns a JSON object with the corresponding location. User must be logged in to
 	zipCode:  "75074",
 	email:  "estockings5@odnoklassniki.ru",
 	phone:  "972-650-6963",
+	volunteersNeeded: 0,
 },
 ```
 

@@ -6,6 +6,7 @@ const inventoryRouter = require("../config/routers/inventoryRouter.js");
 const usersRouter = require("../config/routers/usersRouter.js");
 const locationsRouter = require("../config/routers/locationsRouter.js");
 const userAccountsRouter = require("../config/routers/userAccountsRouter.js");
+const volunteersRouter = require("../config/routers/volunteersRouter.js");
 
 const server = express();
 
@@ -21,5 +22,6 @@ server.use("/api/inventory", inventoryRouter);
 server.use("/api/users", usersRouter);
 server.use("/api/locations", locationsRouter);
 server.use("/api/useraccounts", userAccountsRouter);
+server.use("/api/volunteer", volunteersRouter);
 
 module.exports = server;

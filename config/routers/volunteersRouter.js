@@ -8,7 +8,7 @@ const db = knex(knexConfig.development);
 const helperFunctions = require("../helperFunctions.js");
 const generateToken = helperFunctions.generateToken;
 
-server.post("/register", (req, res) => {
+server.post("/signup", (req, res) => {
 	const userInfo = req.body;
 
 	userInfo.password = bcrypt.hashSync(userInfo.password, 14);
@@ -18,11 +18,12 @@ server.post("/register", (req, res) => {
 				"Please do not include the ID number in the registration. The system auto-generates them",
 		});
 	} else {
+		userInfo.role = "volunteer";
 		db("users")
 			.insert(userInfo)
 			.then(ids => {
 				res.status(201).json({
-					message: `User ${
+					message: `Volunteer ${
 						userInfo.username
 					} has been successfully registered`,
 					userID: ids[0],
@@ -66,9 +67,7 @@ server.post("/login", (req, res) => {
 		);
 });
 
-// // Volunteer routes below
-
-// router.route("/volunteer").post((req, res) => {
+// router.route("/signup").post((req, res) => {
 // 	const userInfo = req.body;
 
 // 	userInfo.password = bcrypt.hashSync(userInfo.password, 14);
@@ -97,6 +96,49 @@ server.post("/login", (req, res) => {
 // 				})
 // 			);
 // 	}
-// });
+// }).post((req, res) => { //
+// 	const userInfo = req.body;
+
+// 	db("users")
+// 		.where({ username: userInfo.username })
+// 		.first()
+// 		.then(user => {
+// 			console.log("uAR", user);
+// 			if (user && bcrypt.compareSync(userInfo.password, user.password)) {
+// 				const token = generateToken(user);
+// 				res.status(200).json({
+// 					message: user.username,
+// 					token: token,
+// 				});
+// 			} else {
+// 				res.status(401).json({
+// 					message: "Incorrect username and/or password.",
+// 				});
+// 			}
+// 		})
+// 		.catch(err =>
+// 			res.status(500).json({
+// 				err,
+// 				message: "There has been an error on the Login POST endpoint",
+// 			})
+// 		);
+// })
+
+// .get( (req, res) => {
+// 	.use(authenticate)
+// 	.route("/")
+// 	.get((req, res) => {
+// 		db("users")
+// 			.then(users => {
+// 				res.status(200).json(users);
+// 			})
+// 			.catch(err =>
+// 				res.status(500).json({
+// 					error: "There has been a server error on the GET route",
+// 					err,
+// 				})
+// 			);
+// 	});
+// })
 
 module.exports = server;

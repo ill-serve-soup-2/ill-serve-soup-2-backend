@@ -22,7 +22,7 @@ const helperFunctions = {
 			);
 	},
 	generateToken: user => {
-		console.log("in generateToken");
+		// console.log("in generateToken", user);
 		const payload = {
 			username: user.username,
 		};
@@ -32,12 +32,11 @@ const helperFunctions = {
 		const options = {
 			expiresIn: "120m",
 		};
-		console.log(payload, secret, options);
 		return jwt.sign(payload, secret, options);
 	},
 	authenticate: (req, res, next) => {
 		const token = req.get("Authorization");
-
+		console.log("auth", req);
 		if (token) {
 			jwt.verify(token, jwtKey, (err, decoded) => {
 				if (err) return res.status(401).json(err);
@@ -57,6 +56,7 @@ const helperFunctions = {
 			});
 		}
 	},
+	volunteerCheck: (req, res, next) => {},
 };
 
 module.exports = helperFunctions;

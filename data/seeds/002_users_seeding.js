@@ -8,7 +8,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 1,
 					username: "sspadazzi0",
-					password: "GUQyueT7Hh",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Sylvester Spadazzi",
 					role: "volunteer",
 					email: "sspadazzi0@cyberchimps.com",
@@ -17,7 +18,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 2,
 					username: "ldanilyuk1",
-					password: "nFzFbHen",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Lorita Danilyuk",
 					role: "cook",
 					email: "ldanilyuk1@cocolog-nifty.com",
@@ -26,7 +28,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 3,
 					username: "dleeuwerink2",
-					password: "uo84WYNrdC",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Daniel Leeuwerink",
 					role: "cook",
 					email: "dleeuwerink2@printfriendly.com",
@@ -35,7 +38,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 4,
 					username: "joller3",
-					password: "GBbUmozS2",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Jerrie Oller",
 					role: "cook",
 					email: "joller3@ebay.co.uk",
@@ -44,7 +48,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 5,
 					username: "lweeks4",
-					password: "Hb6e32CtgH",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Leonidas Weeks",
 					role: "volunteer",
 					email: "lweeks4@360.cn",
@@ -53,7 +58,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 6,
 					username: "cplowell5",
-					password: "Zv6olqYn",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Carver Plowell",
 					role: "cook",
 					email: "cplowell5@un.org",
@@ -62,7 +68,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 7,
 					username: "jdubock6",
-					password: "MZcMl6AU",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Janis Dubock",
 					role: "manager",
 					email: null,
@@ -71,7 +78,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 8,
 					username: "nbims7",
-					password: "V19U3ykPafL",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Nikki Bims",
 					role: null,
 					email: "nbims7@bing.com",
@@ -80,7 +88,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 9,
 					username: "rspafford8",
-					password: "1XTE30yH",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Rubia Spafford",
 					role: "cook",
 					email: "rspafford8@discuz.net",
@@ -89,7 +98,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 10,
 					username: "kcogzell9",
-					password: "DDF5dyFyUwmc",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Karisa Cogzell",
 					role: "volunteer",
 					email: "kcogzell9@lycos.com",
@@ -98,7 +108,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 11,
 					username: "sbelduma",
-					password: "1oijHFhwftxM",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: null,
 					role: null,
 					email: "mpoyzera@canalblog.com",
@@ -107,7 +118,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 12,
 					username: "cpiotrb",
-					password: "A5b7sPhxE4",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Camila Piotr",
 					role: "cook",
 					email: "cpiotrb@chicagotribune.com",
@@ -116,7 +128,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 13,
 					username: "ggrindellc",
-					password: "p8GlRVq",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Gustie Grindell",
 					role: null,
 					email: "ggrindellc@imageshack.us",
@@ -125,7 +138,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 14,
 					username: "mallmondd",
-					password: "HMfdosGs3tig",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Mayor Allmond",
 					role: "manager",
 					email: "mallmondd@apache.org",
@@ -134,7 +148,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 15,
 					username: "sdacee",
-					password: "wKGfkK",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Steffen Dace",
 					role: null,
 					email: "sdacee@wikispaces.com",
@@ -143,7 +158,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 16,
 					username: "msurmeirf",
-					password: "ZNl6J0",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Mic Surmeir",
 					role: null,
 					email: "msurmeirf@cargocollective.com",
@@ -152,7 +168,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 17,
 					username: "vcanaang",
-					password: "Rnb4bN",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Verna Canaan",
 					role: "volunteer",
 					email: "vcanaang@netscape.com",
@@ -161,7 +178,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 18,
 					username: "apayleyh",
-					password: "Le8IGhIKk4yb",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Annnora Payley",
 					role: "volunteer",
 					email: "apayleyh@npr.org",
@@ -170,7 +188,8 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 19,
 					username: "aarundalei",
-					password: "b4sG5pXzzCy",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Anette Arundale",
 					role: "cook",
 					email: "aarundalei@example.com",
@@ -179,65 +198,12 @@ exports.seed = function(knex, Promise) {
 				{
 					id: 20,
 					username: "jdacthj",
-					password: "hvTsxvWsRRl",
+					password:
+						"$2a$12$xVpA0p3B.FpwjFPTVOV4Me43hgy1pW3Teen3NW/zkDx4ec/pITJMu",
 					name: "Jaquenette D'Acth",
 					role: "volunteer",
 					email: "jdacthj@ihg.com",
 					phone: "710-804-5935",
-				},
-				{
-					id: 21,
-					username: "bslamakerk",
-					password: "nJsWKXqLrBeq",
-					name: "Bekki Slamaker",
-					role: "volunteer",
-					email: "bslamakerk@bing.com",
-					phone: null,
-				},
-				{
-					id: 22,
-					username: "pheughl",
-					password: "Wnx0xRbx",
-					name: "Pablo Heugh",
-					role: "volunteer",
-					email: "pheughl@friendfeed.com",
-					phone: null,
-				},
-				{
-					id: 23,
-					username: "agodrichm",
-					password: "uVoTOnn9maB",
-					name: "Arabella Godrich",
-					role: "manager",
-					email: null,
-					phone: null,
-				},
-				{
-					id: 24,
-					username: "sshovelbottomn",
-					password: "AtOs2CjvLVi",
-					name: "Sarena Shovelbottom",
-					role: "cook",
-					email: null,
-					phone: "191-465-0268",
-				},
-				{
-					id: 25,
-					username: "gkerfodo",
-					password: "LjWXBck9M",
-					name: "Geri Kerfod",
-					role: "cook",
-					email: null,
-					phone: "791-108-6051",
-				},
-				{
-					id: 26,
-					username: "hgrugerrp",
-					password: "skIMY8NU1",
-					name: "Hamel Grugerr",
-					role: "volunteer",
-					email: "hgrugerrp@bloglovin.com",
-					phone: null,
 				},
 			]);
 		});

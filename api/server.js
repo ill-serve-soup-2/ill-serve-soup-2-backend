@@ -22,6 +22,6 @@ server.use("/api/inventory", inventoryRouter);
 server.use("/api/users", usersRouter);
 server.use("/api/locations", locationsRouter);
 server.use("/api/useraccounts", userAccountsRouter);
-server.use("/api/volunteer", volunteersRouter);
+server.use("/api/volunteers", volunteersRouter);
 
 module.exports = server;

@@ -316,6 +316,55 @@ Success: Returns a status of 200 and a JSON object with a success message and th
 
 ---
 
+## Volunteers
+
+### /api/volunteers/register
+
+#### POST
+
+The request body must include a unique username and a password. It can optionally include a name, email, and phone number. NOTE: The role 'volunteer' is set for anyone registering here. Returns a success message and the id number of the new user.
+
+```javascript
+{
+	username:  "jdacthj", //unique, required
+	password:  "hvTsxvWsRRl", //required
+	name:  "Jaquenette D'Acth",
+	email:  "jdacthj@ihg.com",
+	phone:  "710-804-5935",
+}
+```
+
+Success: Returns a status of 201 and a JSON object with a success message and the id number of the new user.
+
+---
+
+### /api/volunteers/login
+
+#### POST
+
+The request body must include a unique username and a password matching what is on the database. Returns a success message and a token which is required to pass to be able access restricted routes.
+
+```javascript
+{
+	username:  "jdacthj", // required
+	password:  "hvTsxvWsRRl", //required
+}
+```
+
+REACT DEV >> _You need to have a way to store the token that is generated. LocalStorage(setItem) is a simple way_
+
+Success: Returns a status of 201 and a JSON object with a success message and the token.
+
+---
+
+### /api/volunteers/locations
+
+#### GET
+
+Returns a JSON object with the entire locations list. User must be logged in to access.
+
+Success: Returns a status of 200 and a JSON object containing all of the locations.
+
 ```
                 .-~~~~~~~~~-._       _.-~~~~~~~~~-.
             __.'              ~.   .~              `.__

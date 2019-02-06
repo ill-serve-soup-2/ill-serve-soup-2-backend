@@ -7,8 +7,9 @@ const knexConfig = require("../../knexfile.js");
 const db = knex(knexConfig.development);
 const helperFunctions = require("../helperFunctions.js");
 const generateToken = helperFunctions.generateToken;
+const authenticate = helperFunctions.authenticate;
 
-server.post("/signup", (req, res) => {
+server.post("/register", (req, res) => {
 	const userInfo = req.body;
 
 	userInfo.password = bcrypt.hashSync(userInfo.password, 14);
@@ -46,10 +47,9 @@ server.post("/login", (req, res) => {
 		.where({ username: userInfo.username })
 		.first()
 		.then(user => {
-			console.log("uAR", user);
 			if (user && bcrypt.compareSync(userInfo.password, user.password)) {
 				const token = generateToken(user);
-				res.status(200).json({
+				res.status(201).json({
 					message: user.username,
 					token: token,
 				});
@@ -63,6 +63,32 @@ server.post("/login", (req, res) => {
 			res.status(500).json({
 				err,
 				message: "There has been an error on the Login POST endpoint",
+			})
+		);
+});
+
+server.get("/locations", (req, res) => {
+	db("locations")
+		.select(
+			"id",
+			"name",
+			"streetAddress",
+			"city",
+			"state",
+			"zipCode",
+			"email",
+			"phone"
+		)
+		.where("volunteersNeeded", 1)
+		// .first()
+		.then(locations => {
+			res.status(200).json(locations);
+		})
+		.catch(err =>
+			res.status(500).json({
+				err,
+				message:
+					"There has been an error on the Volunteer Locations GET endpoint",
 			})
 		);
 });

@@ -5,6 +5,7 @@ const knexConfig = require("../../knexfile.js");
 const db = knex(knexConfig.development);
 const helperFunctions = require("../helperFunctions.js");
 const authenticate = helperFunctions.authenticate;
+const permissionCheck = helperFunctions.permissionCheck;
 
 router
 	.use(authenticate)
@@ -21,7 +22,10 @@ router
 					err,
 				})
 			);
-	})
+	});
+router
+	.use(permissionCheck, authenticate)
+	.route("/")
 	.post((req, res) => {
 		if (req.body.name) {
 			db("locations")
@@ -47,7 +51,7 @@ router
 	});
 
 router
-	.use(authenticate)
+	.use(permissionCheck, authenticate)
 	.route("/:id")
 	.get((req, res) => {
 		db("locations")

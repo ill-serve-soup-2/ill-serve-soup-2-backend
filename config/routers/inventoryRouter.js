@@ -4,13 +4,11 @@ const router = express.Router();
 const knexConfig = require("../../knexfile.js");
 const db = knex(knexConfig.development);
 const helperFunctions = require("../helperFunctions.js");
-const generateToken = helperFunctions.generateToken;
 const authenticate = helperFunctions.authenticate;
-const volunteerCheck = helperFunctions.volunteerCheck;
+const permissionCheck = helperFunctions.permissionCheck;
 
 router
-	.use(volunteerCheck)
-	.use(authenticate)
+	.use(permissionCheck, authenticate)
 	.route("/")
 	.get((req, res) => {
 		// console.log("Look here > ", authenticate);
@@ -54,7 +52,7 @@ router
 	});
 
 router
-	.use(authenticate)
+	.use(permissionCheck, authenticate)
 	.route("/:id")
 	.get((req, res) => {
 		db("inventory")

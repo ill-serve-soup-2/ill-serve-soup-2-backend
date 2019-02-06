@@ -37,6 +37,7 @@ const helperFunctions = {
 		return jwt.sign(payload, secret, options);
 	},
 	authenticate: (req, res, next) => {
+		console.log("in authenticate");
 		const token = req.get("Authorization");
 		if (token) {
 			jwt.verify(token, jwtKey, (err, decoded) => {
@@ -59,9 +60,9 @@ const helperFunctions = {
 			});
 		}
 	},
-	volunteerCheck: (req, res, next) => {
+	permissionCheck: (req, res, next) => {
 		const token = req.get("Authorization");
-		console.log("in volunteerCheck");
+		console.log("in permissionCheck");
 		if (token) {
 			jwt.verify(token, jwtKey, (err, decoded) => {
 				req.decoded = decoded;
@@ -70,10 +71,11 @@ const helperFunctions = {
 				if (err) {
 					return res.status(401).json(err);
 				}
-				if (userRole === "volunteer") {
+				if (userRole === "volunteer" || userRole === null) {
 					return res.status(401).json({
+						status: 401,
 						message:
-							"Volunteers are not authorized to access this area.",
+							"Only staff members are permitted to complete that action.",
 					});
 				} else {
 					next();

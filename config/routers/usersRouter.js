@@ -5,11 +5,12 @@ const knexConfig = require("../../knexfile.js");
 const db = knex(knexConfig.development);
 const helperFunctions = require("../helperFunctions.js");
 const authenticate = helperFunctions.authenticate; // Checks for token
+const permissionCheck = helperFunctions.permissionCheck;
 
 // I know I did not need to use router for this, but I figured I should be consistent
 
 router
-	.use(authenticate)
+	.use(permissionCheck, authenticate)
 	.route("/")
 	.get((req, res) => {
 		db("users")

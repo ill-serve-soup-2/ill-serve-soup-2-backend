@@ -111,6 +111,8 @@ _example:_
 
 ---
 
+[^Back to Top^](#ill-serve-soup-2)
+
 # **Endpoints**
 
 ## Inventory
@@ -161,6 +163,8 @@ Success: Returns a status of 200 and a JSON object with a success message with t
 
 ---
 
+[^Back to Top^](#ill-serve-soup-2)
+
 ## Users
 
 ### /api/users
@@ -208,6 +212,8 @@ Success: Returns a status of 200 and a JSON object with a success message with t
 
 ---
 
+[^Back to Top^](#ill-serve-soup-2)
+
 ## User Accounts
 
 ### /api/useraccounts/register
@@ -249,6 +255,8 @@ REACT DEV >> _You need to have a way to store the token that is generated. Local
 Success: Returns a status of 201 and a JSON object with a success message and the token.
 
 ---
+
+[^Back to Top^](#ill-serve-soup-2)
 
 ## Locations
 
@@ -316,6 +324,8 @@ Permanently removes the corresponding location from the database. A confirmation
 Success: Returns a status of 200 and a JSON object with a success message and the count of the deleted records.
 
 ---
+
+[^Back to Top^](#ill-serve-soup-2)
 
 ## Volunteers
 

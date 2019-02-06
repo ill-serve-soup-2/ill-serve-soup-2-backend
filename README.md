@@ -21,6 +21,7 @@ By default the server runs on port 5000 if it is not found at https://ill-serve-
 [Users](#users-1) |
 [User Accounts](#user-accounts) |
 [Locations](#locations-1) |
+[Volunteers](#volunteers) |
 
 NOTE: Do not include the id number in any PUT or POST requests. The system autogenerates it.
 
@@ -361,7 +362,7 @@ Success: Returns a status of 201 and a JSON object with a success message and th
 
 #### GET
 
-Returns a JSON object with the entire locations list. User must be logged in to access.
+Returns a JSON object with the list of locations that need volunteers. User must be logged in to access.
 
 Success: Returns a status of 200 and a JSON object containing all of the locations.
 

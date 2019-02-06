@@ -13,6 +13,7 @@ router
 	.route("/")
 	.get((req, res) => {
 		db("users")
+			.select("id", "username", "name", "role", "email", "phone") // Basically, everything but password
 			.then(users => {
 				res.status(200).json(users);
 			})

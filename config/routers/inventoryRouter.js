@@ -6,12 +6,16 @@ const db = knex(knexConfig.development);
 const helperFunctions = require("../helperFunctions.js");
 const generateToken = helperFunctions.generateToken;
 const authenticate = helperFunctions.authenticate;
+const volunteerCheck = helperFunctions.volunteerCheck;
 
 router
+	.use(volunteerCheck)
 	.use(authenticate)
 	.route("/")
 	.get((req, res) => {
-		console.log("inventoryRouter");
+		// console.log("Look here > ", authenticate);
+		// console.log("Look here > ", userRole);
+		// console.log("inventoryRouter", role);
 		db("inventory")
 			.then(inventory => {
 				res.status(200).json(inventory);

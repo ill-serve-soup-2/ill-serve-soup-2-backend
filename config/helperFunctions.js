@@ -21,10 +21,12 @@ const helperFunctions = {
 				})
 			);
 	},
+
 	generateToken: user => {
 		// console.log("in generateToken", user);
 		const payload = {
 			username: user.username,
+			role: user.role,
 		};
 
 		const secret = process.env.JWT_SECRET;
@@ -36,12 +38,13 @@ const helperFunctions = {
 	},
 	authenticate: (req, res, next) => {
 		const token = req.get("Authorization");
-		console.log("auth", req);
 		if (token) {
 			jwt.verify(token, jwtKey, (err, decoded) => {
-				if (err) return res.status(401).json(err);
-
+				if (err) {
+					return res.status(401).json(err);
+				}
 				req.decoded = decoded;
+				this.userRole = () => req.decoded.role;
 
 				next();
 			});
@@ -56,7 +59,28 @@ const helperFunctions = {
 			});
 		}
 	},
-	volunteerCheck: (req, res, next) => {},
+	volunteerCheck: (req, res, next) => {
+		const token = req.get("Authorization");
+		console.log("in volunteerCheck");
+		if (token) {
+			jwt.verify(token, jwtKey, (err, decoded) => {
+				req.decoded = decoded;
+				userRole = req.decoded.role;
+				console.log("role is", userRole);
+				if (err) {
+					return res.status(401).json(err);
+				}
+				if (userRole === "volunteer") {
+					return res.status(401).json({
+						message:
+							"Volunteers are not authorized to access this area.",
+					});
+				} else {
+					next();
+				}
+			});
+		}
+	},
 };
 
 module.exports = helperFunctions;

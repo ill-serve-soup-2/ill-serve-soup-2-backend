@@ -5,9 +5,9 @@ const server = express();
 const bcrypt = require("bcryptjs");
 const knexConfig = require("../../knexfile.js");
 const db = knex(knexConfig.development);
-const helperFunctions = require("../helperFunctions.js");
-const generateToken = helperFunctions.generateToken;
-const authenticate = helperFunctions.authenticate;
+const middleware = require("../middleware.js");
+const generateToken = middleware.generateToken;
+const authenticate = middleware.authenticate;
 
 server.post("/register", (req, res) => {
 	const userInfo = req.body;
@@ -23,12 +23,20 @@ server.post("/register", (req, res) => {
 		db("users")
 			.insert(userInfo)
 			.then(ids => {
-				res.status(201).json({
-					message: `Volunteer ${
-						userInfo.username
-					} has been successfully registered`,
-					userID: ids[0],
-				});
+				if (!ids) {
+					res.status(400).json({
+						message: `There has been some sort of error. Perhaps ${
+							userInfo.username
+						} is already in use?`,
+					});
+				} else {
+					res.status(201).json({
+						message: `Volunteer ${
+							userInfo.username
+						} has been successfully registered`,
+						userID: ids[0],
+					});
+				}
 			})
 			.catch(err =>
 				res.status(500).json({

@@ -3,9 +3,9 @@ const knex = require("knex");
 const router = express.Router();
 const knexConfig = require("../../knexfile.js");
 const db = knex(knexConfig.development);
-const helperFunctions = require("../helperFunctions.js");
-const authenticate = helperFunctions.authenticate;
-const permissionCheck = helperFunctions.permissionCheck;
+const middleware = require("../middleware.js");
+const authenticate = middleware.authenticate;
+const permissionCheck = middleware.permissionCheck;
 
 router
 	.use(authenticate)

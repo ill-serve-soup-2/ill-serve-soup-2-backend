@@ -3,7 +3,12 @@ const jwt = require("jsonwebtoken");
 
 const jwtKey = process.env.JWT_SECRET;
 
-const helperFunctions = {
+const knex = require("knex");
+const knexConfig = require("../knexfile.js");
+const db = knex(knexConfig.development);
+
+const middleware = {
+	// I know this is object technically contains middleware AND helper functions, not just middleware
 	register: (req, res) => {
 		const userInfo = req.body;
 
@@ -83,6 +88,19 @@ const helperFunctions = {
 			});
 		}
 	},
+	lowInventoryCheck: (req, res) => {
+		db("inventory")
+			.where("quantity", "<", "lowInventoryThreshold")
+			.then(inventory => {
+				res.status(201).json(inventory);
+			})
+			.catch(err =>
+				res.status(500).json({
+					err,
+					message: "There has been an error on the Register function",
+				})
+			);
+	},
 };
 
-module.exports = helperFunctions;
+module.exports = middleware;

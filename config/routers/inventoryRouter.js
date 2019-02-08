@@ -3,17 +3,15 @@ const knex = require("knex");
 const router = express.Router();
 const knexConfig = require("../../knexfile.js");
 const db = knex(knexConfig.development);
-const helperFunctions = require("../helperFunctions.js");
-const authenticate = helperFunctions.authenticate;
-const permissionCheck = helperFunctions.permissionCheck;
+const middleware = require("../middleware.js");
+const authenticate = middleware.authenticate;
+const permissionCheck = middleware.permissionCheck;
+const lowInventoryCheck = middleware.lowInventoryCheck;
 
 router
-	.use(permissionCheck, authenticate)
+	.use(lowInventoryCheck) //permissionCheck, authenticate)
 	.route("/")
 	.get((req, res) => {
-		// console.log("Look here > ", authenticate);
-		// console.log("Look here > ", userRole);
-		// console.log("inventoryRouter", role);
 		db("inventory")
 			.then(inventory => {
 				res.status(200).json(inventory);
